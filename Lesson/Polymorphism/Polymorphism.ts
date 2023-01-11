@@ -42,5 +42,5 @@ function drawShapes(shape: Shape) {
 let sphere = new Sphere(5);
 let triangle = new Triangle(10, 20);
 
-drawShapes(sphere); // Drawing a Circle with radius 5
-drawShapes(triangle); // Drawing a Rectangle with width 10 and height 20
+drawShapes(sphere);
+drawShapes(triangle);

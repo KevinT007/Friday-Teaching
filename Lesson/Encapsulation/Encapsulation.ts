@@ -16,7 +16,7 @@ export default class BankAccount {
     if (this.balance - amount >= 0) {
       this.balance -= amount;
     } else {
-      throw new Error("Insufficient funds");
+      throw new Error("Broke");
     }
   }
 
