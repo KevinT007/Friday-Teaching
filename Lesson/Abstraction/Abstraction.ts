@@ -1,37 +1,32 @@
-abstract class Shape {
-  abstract getArea(): number;
-  abstract getPerimeter(): number;
+abstract class Payment {
+  abstract makePayment(): void;
 }
-class Rectangle extends Shape {
-  width: number;
-  height: number;
-  constructor(width: number, height: number) {
+class CreditCardPayment extends Payment {
+  cardNumber: string;
+  expirationDate: string;
+  cvv: string;
+  constructor(cardNumber: string, expirationDate: string, cvv: string) {
     super();
-    this.width = width;
-    this.height = height;
+    this.cardNumber = cardNumber;
+    this.expirationDate = expirationDate;
+    this.cvv = cvv;
   }
-
-  getArea(): number {
-    return this.width * this.height;
-  }
-
-  getPerimeter(): number {
-    return 2 * (this.width + this.height);
+  makePayment(): void {
+    //Make payment using credit card details
+    console.log(`Payment made using Credit Card: ${this.cardNumber}`);
   }
 }
 
-class Circle extends Shape {
-  radius: number;
-  constructor(radius: number) {
+class PayPalPayment extends Payment {
+  email: string;
+  password: string;
+  constructor(email: string, password: string) {
     super();
-    this.radius = radius;
+    this.email = email;
+    this.password = password;
   }
-
-  getArea(): number {
-    return Math.PI * this.radius * this.radius;
-  }
-
-  getPerimeter(): number {
-    return 2 * Math.PI * this.radius;
+  makePayment(): void {
+    //Make payment using PayPal account
+    console.log(`Payment made using PayPal account: ${this.email}`);
   }
 }

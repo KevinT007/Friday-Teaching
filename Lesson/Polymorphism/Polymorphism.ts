@@ -1,46 +1,29 @@
-interface Shape {
-  draw(): void;
+interface Transportation {
+  move(): void;
 }
-class Sphere implements Shape {
-  radius: number;
-  constructor(radius: number) {
-    this.radius = radius;
-  }
-  getArea(): number {
-    throw new Error("Method not implemented.");
-  }
-  getPerimeter(): number {
-    throw new Error("Method not implemented.");
-  }
-  draw(): void {
-    console.log(`Drawing a Sphere with radius ${this.radius}`);
+class Car implements Transportation {
+  move(): void {
+    console.log("Car is moving on the road");
   }
 }
 
-class Triangle implements Shape {
-  width: number;
-  height: number;
-  constructor(width: number, height: number) {
-    this.width = width;
-    this.height = height;
-  }
-  getArea(): number {
-    throw new Error("Method not implemented.");
-  }
-  getPerimeter(): number {
-    throw new Error("Method not implemented.");
-  }
-  draw(): void {
-    console.log(
-      `Drawing a triangle with width ${this.width} and height ${this.height}`
-    );
+class Bike implements Transportation {
+  move(): void {
+    console.log("Bike is moving on the road");
   }
 }
-function drawShapes(shape: Shape) {
-  shape.draw();
-}
-let sphere = new Sphere(5);
-let triangle = new Triangle(10, 20);
 
-drawShapes(sphere);
-drawShapes(triangle);
+class Boat implements Transportation {
+  move(): void {
+    console.log("Boat is moving on the water");
+  }
+}
+let transportation: Transportation[] = [new Car(), new Bike(), new Boat()];
+
+transportation.forEach((t) => {
+  t.move();
+});
+
+// Car is moving on the road
+// Bike is moving on the road
+// Boat is moving on the water
